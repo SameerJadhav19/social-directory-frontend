@@ -1,0 +1,99 @@
+.registration{
+    height: 46.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgb(245, 241, 242)
+}
+.formContainer{
+    margin-top: 100px;
+    width: 700px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.welcome{
+    width: 100%;
+    height: 15%;
+    background-color:palevioletred;
+    border-radius: 10px;
+    color: white
+}
+.board{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 85%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    height: 97.5%;
+    width: 60%;
+    padding: 5px;
+    background-color:white;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.routeToLogin{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 40%;
+    background-color:rgb(235, 187, 201);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.info{
+    width: 100%;
+    height: 20%;
+    color: white
+}
+.arrow{
+    margin-top: 40%;
+    margin-left: 45%;
+    width:50px;
+    height:50px;
+    cursor: pointer;
+}
+.email{
+    margin-left: 10px;
+    margin-top: 50px;
+    padding-top:10px;
+    padding-bottom: 10px
+}
+#mail{
+    width: 20em
+}
+.number{
+    margin-left: 10px;
+    padding-top:5px;
+    padding-bottom: 10px;
+}
+.password{
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom:10px
+}
+#outlined-password-input{
+    width: 24em
+}
+#phone{
+    width: 16em
+}
+.signupButton{
+    margin-left: 10px;
+}
+#signup-btn{
+    background-color:palevioletred
+}
+#arrow-forward{
+    color: white;
+    border-radius: 27px;
+    width: 50px;
+    height: 50px;
+}
+#arrow-forward:hover{
+    border: 1px solid white
+}
