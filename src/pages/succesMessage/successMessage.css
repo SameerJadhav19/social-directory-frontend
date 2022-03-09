@@ -1,0 +1,32 @@
+.success{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.succesMessage{
+    margin-top: 100px;
+    padding: 10px;
+    width: 50em;
+    height: 5em;
+    border: 1px solid rgb(21, 168, 21);
+    border-radius: 10px;
+    background-color: rgb(201, 235, 201);
+}
+
+.link{
+    cursor: pointer;
+}
+.link:hover{
+    color:blue;
+    text-decoration: underline
+}
+.messages{
+    margin-top:20px;
+    display: flex;
+    flex-direction: column;
+    align-items:center
+}
+.msg{
+    color:green
+}

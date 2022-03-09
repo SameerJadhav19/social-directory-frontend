@@ -159,7 +159,7 @@ function Signup() {
         };
         register(object).then((result)=>{
           console.log(result.data);
-          history.push("/signin")
+          history.push("/success")
         }).catch((error) => {
           console.log(error);
         })
