@@ -1,0 +1,5 @@
+.dashboardBody{
+    background-color:rgb(243, 209, 217);
+    height: 100vh;
+    overflow:auto;
+}

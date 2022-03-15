@@ -1,0 +1,50 @@
+.profileContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profileForm{
+    margin-top:50px;
+    width:35vw;
+    height: 80vh;
+    background-color: whitesmoke;
+    border-radius:15px;
+    padding: 10px;
+    box-shadow: 0px 5px 5px rgb(163, 161, 161);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: url(./bg.jpg);
+}
+.profileMessage{
+    color:white;
+}
+.date{
+    margin-top:15px
+}
+#userName{
+    width:21vw
+}
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root{
+    height:2.6em;
+}
+.location{
+    margin-top:15px
+}
+#location{
+    width:16vw;
+}
+.interests{
+    margin-top:15px
+}
+#interests{
+    width:21vw;
+}
+.createButton{
+    margin-top:15px
+}
+#create-btn{
+    background: rgb(240, 164, 98);
+    text-transform:capitalize ;
+    color: white;
+}
