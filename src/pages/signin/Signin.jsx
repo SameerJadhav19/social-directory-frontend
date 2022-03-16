@@ -116,6 +116,7 @@ function Signin() {
           console.log(result.data.data.token);
           localStorage.setItem("token", result.data.data.token)
           localStorage.setItem("id",result.data.data.id)
+          history.push("/dashboard")
         }).catch((error) =>{
           console.log(error);
         })
