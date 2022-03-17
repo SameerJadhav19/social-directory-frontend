@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "./Signin.css";
 import { useHistory } from "react-router-dom";
-import { login } from "../../services/user.services"
+import { login } from "../../services/user.services";
 const emailRegex =
   /^[0-9a-zA-Z]+([._+-][0-9a-zA-Z]+)*@([0-9a-zA-Z][-]?)+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$/;
 const passwordRegex =
@@ -31,10 +31,10 @@ function Signin() {
   }
 
   const ReDirect = () => {
-      history.push("/")
-  }
+    history.push("/");
+  };
 
-  const Submit = () => {
+  const Submit = async () => {
     if (email === "" && password === "") {
       setRegexPattern((regexPattern) => ({
         ...regexPattern,
@@ -63,7 +63,6 @@ function Signin() {
         }));
       }
       if (!emailValidation) {
-        console.log("emailTest3", emailValidation);
         setRegexPattern((regexPattern) => ({
           ...regexPattern,
           emailBorder: true,
@@ -73,7 +72,6 @@ function Signin() {
           emailText: "Enter A Valid Email",
         }));
       } else {
-        console.log("emailTest2", emailValidation);
         setRegexPattern((regexPattern) => ({
           ...regexPattern,
           emailBorder: false,
@@ -84,7 +82,6 @@ function Signin() {
         }));
       }
       if (passwordValidation) {
-        console.log("passwordTest2", passwordValidation);
         setRegexPattern((regexPattern) => ({
           ...regexPattern,
           passwordBorder: false,
@@ -94,7 +91,6 @@ function Signin() {
           passwordText: "",
         }));
       } else {
-        console.log("passwordTest3", passwordValidation);
         setRegexPattern((regexPattern) => ({
           ...regexPattern,
           passwordBorder: true,
@@ -105,21 +101,20 @@ function Signin() {
             "Password Must Not Be Less Than 8 Characters And Must Contain One Uppercase, One Lowercase and One Numeric.",
         }));
       }
-      if (emailValidation && passwordValidation) {
-        let object ={
-          "email": email,
-         "password": password
+      try {
+        if (emailValidation && passwordValidation) {
+          let object = {
+            email: email,
+            password: password,
+          };
+          const data = await login(object);
+          console.log(data.data.data.id);
+          console.log(data.data.data.token);
+          localStorage.setItem("token", data.data.data.token);
+          localStorage.setItem("id", data.data.data.id);
         }
-        console.log(object);
-        login(object).then((result)=>{
-          console.log(result.data.data.id);
-          console.log(result.data.data.token);
-          localStorage.setItem("token", result.data.data.token)
-          localStorage.setItem("id",result.data.data.id)
-          history.push("/dashboard")
-        }).catch((error) =>{
-          console.log(error);
-        })
+      } catch (e) {
+        console.log(e);
       }
     }
   };
@@ -165,7 +160,10 @@ function Signin() {
               <h4>Don't have an account yet? Sign up...</h4>
             </div>
             <div className="arrow-back">
-              <ArrowBackIosNewOutlinedIcon id="arrow-backward" onClick={ReDirect}/>
+              <ArrowBackIosNewOutlinedIcon
+                id="arrow-backward"
+                onClick={ReDirect}
+              />
             </div>
           </div>
         </div>

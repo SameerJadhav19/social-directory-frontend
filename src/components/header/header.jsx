@@ -41,15 +41,6 @@ function Header({ changeComponent }) {
             Social Directory
           </span>
         </div>
-
-        <div className="searchbar">
-          <div className="searching">
-            <form>
-              <button type="submit">Search</button>
-              <input type="search" placeholder="Search..." />
-            </form>
-          </div>
-        </div>
         <div className="btn1">
           <div className="profileIcon">
             <Tooltip title="Create Profile">
