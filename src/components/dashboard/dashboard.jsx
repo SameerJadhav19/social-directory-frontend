@@ -40,21 +40,16 @@ function Dashboard() {
     try {
       const result = await search(interests);
       setProfiles(result.data.data);
-      console.log(result.data.data);
     } catch (error) {
-      console.log(error);
     }
   };
 
   const onCreateContact = async (profileId) => {
     try {
       const result = await createContact(profileId);
-      console.log(result);
       setOpen(true);
       setStatus(result.statusText);
-      console.log(status);
     } catch (error) {
-      console.log(error);
       setOpen(true);
       setStatus(error.toString());
     }

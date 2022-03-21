@@ -8,7 +8,6 @@ function Contact({ onSearch, profiles, onCreateContact }) {
   const [interests, setInterests] = React.useState("");
   const [profileId, setProfileId] = React.useState("");
   const takeInterest = (e) => {
-    console.log(e.target.value);
     setInterests(e.target.value);
   };
   const search = () => {
@@ -18,7 +17,6 @@ function Contact({ onSearch, profiles, onCreateContact }) {
     onSearch(object);
   };
   const onAddContact = (profile) => {
-    console.log(profile);
     setProfileId(profile);
     onCreateContact(profileId);
   };
@@ -44,7 +42,7 @@ function Contact({ onSearch, profiles, onCreateContact }) {
         <div className="profilesContainer">
           {profiles.map((profile) => (
             <div className="profile-viewer" key={profile._id} id={profile._id}>
-              <div className="name">Name: {profile.name}</div>
+              <div className="userName">Name: {profile.name}</div>
               <div className="Userlocation">Location: {profile.location}</div>
               <div className="dob">Date of birth: {profile.dateOfBirth}</div>
               <div className="userInterests">

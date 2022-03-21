@@ -112,6 +112,7 @@ function Signin() {
           console.log(data.data.data.token);
           localStorage.setItem("token", data.data.data.token);
           localStorage.setItem("id", data.data.data.id);
+          history.push("/dashboard")
         }
       } catch (e) {
         console.log(e);
