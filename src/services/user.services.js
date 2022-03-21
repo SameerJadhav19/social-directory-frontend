@@ -7,8 +7,8 @@ export function register(object)
     return response;
 }
 
-export function login(object)
+export async function login(object)
 {
-    let response=axios.post("http://localhost:3000/api/user/login/",object)
+    let response= await axios.post("http://localhost:3000/api/user/login/",object)
     return response;
 }

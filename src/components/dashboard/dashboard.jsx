@@ -4,7 +4,11 @@ import Header from "../header/header.jsx";
 import Introduction from "../introduction/introduction.jsx";
 import Profile from "../profile/profile.jsx";
 import Contact from "../contacts/contacts.jsx";
-import { createProfile } from "../../services/data.services";
+import {
+  createProfile,
+  search,
+  createContact,
+} from "../../services/data.services";
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
@@ -17,6 +21,7 @@ function Dashboard() {
   const [component, setComponent] = React.useState(0);
   const [open, setOpen] = React.useState(false);
   const [status, setStatus] = React.useState("");
+  const [profiles, setProfiles] = React.useState([]);
   const changeComponent = (data) => {
     setComponent(data);
   };
@@ -25,6 +30,25 @@ function Dashboard() {
       const data = await createProfile(profileData);
       setOpen(true);
       setStatus(data.statusText);
+    } catch (error) {
+      setOpen(true);
+      setStatus(error.toString());
+    }
+  };
+
+  const onSearch = async (interests) => {
+    try {
+      const result = await search(interests);
+      setProfiles(result.data.data);
+    } catch (error) {
+    }
+  };
+
+  const onCreateContact = async (profileId) => {
+    try {
+      const result = await createContact(profileId);
+      setOpen(true);
+      setStatus(result.statusText);
     } catch (error) {
       setOpen(true);
       setStatus(error.toString());
@@ -47,13 +71,13 @@ function Dashboard() {
         ) : component === 1 ? (
           <Profile onCreateProfile={onCreateProfile} />
         ) : (
-          <Contact />
+          <Contact onSearch={onSearch} profiles={profiles} onCreateContact={onCreateContact}/>
         )}
       </div>
       <div>
         <Stack spacing={2} sx={{ width: "100%" }}>
           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            {status !== "OK" ? (
+            {status !=="OK" && status !== "Created" ? (
               <Alert
                 onClose={handleClose}
                 severity="error"
